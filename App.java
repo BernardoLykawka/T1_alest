@@ -96,5 +96,36 @@ public class App{
         System.out.println("Top da pilha: "+stack.top());
         System.out.println("Tamanho da fila: " + stack.size());
 
+
+        //PILHA ENCADEADA
+        LinkedStack lstack = new LinkedStack();
+
+        System.out.println("\n-----------------------\nAdicionando na pilha encadeada: ");
+        lstack.push(9);
+        lstack.push(3);
+        lstack.push(5);
+        lstack.push(7);
+        lstack.push(4);
+        lstack.push(2);
+
+        System.out.println(lstack);
+        System.out.println("Top da pilha encadeada: " + lstack.top());
+
+        System.out.println("Tirando da pilha encadeada: " + lstack.top());
+        lstack.pop();
+        System.out.println(lstack);
+        System.out.println("Top da pilha encadeada: " + lstack.top());
+
+        System.out.println("Limpando a pilha encadeada: ");
+        lstack.clear();
+        System.out.println("Top da pilha encadeada: " + lstack.top());
+        System.out.println(lstack);
+
+        System.out.println("Adicionando na pilha encadeada: ");
+        lstack.push(9);
+        lstack.push(3);
+        lstack.push(5);
+        System.out.println("Top da pilha encadeada: " + lstack.top());
+        System.out.println(lstack);
     }
 }
