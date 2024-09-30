@@ -1,6 +1,8 @@
 public class App{
     public static void main(String[] args) {
         ArrayQueue queue = new ArrayQueue();
+
+        //FILA
         queue.enqueue(9);
         queue.enqueue(3);           //colocando alguns elementos para depois limpar
         queue.enqueue(5);
@@ -53,9 +55,46 @@ public class App{
         System.out.println(queue);
 
 
-        queue.enqueue(333);
-        queue.enqueue(777);             //colocando no final, antes do head, array circular
-        queue.enqueue(888);             //ARRUMAR
+        //queue.enqueue(333);
+       //queue.enqueue(777);             //colocando no final, antes do head, array circular
+       //queue.enqueue(888);             //ARRUMAR
+
+
+        //PILHA
+        ArrayStack stack = new ArrayStack();
+        System.out.println("\n--------------------------------------\nCriando uma fila: ");
+
+        stack.push(9);
+        stack.push(3);
+        stack.push(5);
+        System.out.println("Tamanho da fila: " + stack.size());
+
+        System.out.println(stack);
+        System.out.println("Top da pilha: "+stack.top());
+
+        System.out.println("Tirando da fila: "+ stack.pop());
+        System.out.println(stack);
+
+        System.out.println("Limpando a pilha: ");
+        stack.clear();
+        System.out.println(stack);
+
+        System.out.println("Top da pilha: "+stack.top());
+        System.out.println("Tamanho da fila: " + stack.size());
+
+        stack.push(10);
+        stack.push(20);
+        stack.push(30);
+        stack.push(40);
+        stack.push(50);
+        stack.push(60);
+        stack.push(70);
+        stack.push(80);
+        stack.push(90);
+
+        System.out.println(stack);
+        System.out.println("Top da pilha: "+stack.top());
+        System.out.println("Tamanho da fila: " + stack.size());
 
     }
 }
