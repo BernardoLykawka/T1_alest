@@ -31,19 +31,11 @@ public class ArrayQueue implements QueueTAD{
 
     @Override
     public void enqueue(int element) {
-        if (count == 0){ //adiciona na primeira posição quando ta vazio, acho que isso da pra apagar
-            array[0] = element;         //da uma testada pfv
-            array[head] = array[0];
-            count++;
-            return;
-        }
-
-
         if(count == tam){       //muda a capacidade
             setCapacity(tam * 2);
         }
 
-        array[count+head] = element;
+        array[(count+head) % tam] = element;
         count++;
     }
 
@@ -51,7 +43,7 @@ public class ArrayQueue implements QueueTAD{
     public int dequeue() {
         int anterior = array[head];
         array[head] = 0;
-        head = (head + 1);
+        head = (head + 1) % tam;
 
         count--;
         return anterior;

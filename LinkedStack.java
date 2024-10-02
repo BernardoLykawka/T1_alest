@@ -18,32 +18,32 @@ public class LinkedStack implements StackTAD {
             this.next = null;
         }
     }
-    private Node topo;
+    private Node head;
     private int count;
 
     public LinkedStack() {
-        this.topo = null;
+        this.head = null;
         this.count = 0;
     }
     @Override
     public void push(int element) {
         Node valor = new Node(element);
-        if (this.topo == null) {
-            this.topo = valor;
+        if (this.head == null) {
+            this.head = valor;
         }else{
-            valor.next = this.topo;
-            this.topo = valor;
+            valor.next = this.head;
+            this.head = valor;
         }
         this.count++;
     }
 
     @Override
     public int pop() {
-        if (this.topo == null) {
+        if (this.head == null) {
             throw new NoSuchElementException();
         }
-        Node valor = this.topo;
-        topo = valor.next;
+        Node valor = this.head;
+        head = valor.next;
         this.count--;
 
         return valor.element;
@@ -61,14 +61,14 @@ public class LinkedStack implements StackTAD {
 
     @Override
     public void clear() {
-        this.topo = null;
+        this.head = null;
         count = 0;
     }
 
     @Override
     public int top() {
         try{
-            return topo.element;
+            return head.element;
         }
         catch(NullPointerException e){
             System.out.println("Pilha vazia!!");
@@ -80,7 +80,7 @@ public class LinkedStack implements StackTAD {
         StringBuilder sb = new StringBuilder();
 
             sb.append("[ ");
-            Node n = topo;
+            Node n = head;
             while(n != null){
                 sb.append(n.element).append(" ");
                 n = n.next;

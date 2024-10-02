@@ -1,6 +1,3 @@
-import org.w3c.dom.Node;
-
-import java.util.Queue;
 
 /**
  * (2 Pontos) Uma classe LinkedQueue, contendo uma implementação completa de uma
@@ -12,34 +9,87 @@ import java.util.Queue;
 
 public class LinkedQueue implements QueueTAD {
 
+    public class Node {
+        int element;
+        Node next;
+
+        public Node(int element) {
+            this.element = element;
+            this.next = null;
+        }
+    }
+    private Node head;
+    private Node tail;
+    private int count;
+
+    public LinkedQueue() {
+        this.head = null;
+        this.tail = null;
+        this.count = 0;
+    }
 
     @Override
     public void enqueue(int element) {
+        Node valor = new Node(element);
+        if (head == null) {
+            head = valor;
+            tail = valor;
+            count++;
+            return;
+        }
 
+        tail.next = valor;
+        tail = tail.next;
+
+        count++;
     }
 
     @Override
     public int dequeue() {
-        return 0;
+        int anterior = head.element;
+        if (head.next == null) {
+            head = null;
+        }
+
+        head = head.next;
+
+        count--;
+        return anterior;
     }
 
     @Override
     public int size() {
-        return 0;
+        return count;
     }
 
     @Override
     public boolean isEmpty() {
-        return false;
+        return count == 0;
     }
 
     @Override
     public void clear() {
-
+        head = null;
+        tail = null;
+        count = 0;
     }
 
     @Override
     public int head() {
-        return 0;
+        return head.element;
+    }
+
+    public String toString(){
+        StringBuilder sb = new StringBuilder();
+
+        sb.append("[ ");
+        Node n = head;
+        while(n != null){
+            sb.append(n.element).append(" ");
+            n = n.next;
+        }
+
+        sb.append(" ]");
+        return sb.toString();
     }
 }

@@ -1,5 +1,7 @@
-public class App{
-    public static void main(String[] args) {
+
+public class App {
+
+    public void chamarFila() {
         ArrayQueue queue = new ArrayQueue();
 
         //FILA
@@ -38,14 +40,13 @@ public class App{
         System.out.println("Tamanho da fila: " + queue.size());
 
         System.out.println("Tirando elementos: ");
-        System.out.println(queue.dequeue());
-        System.out.println(queue.dequeue());        //tirando os 4 primeiros elementos da fila
-        System.out.println(queue.dequeue());
-        System.out.println(queue.dequeue());
-
+        System.out.println("Removendo: " + queue.dequeue());
+        System.out.println("Removendo: " + queue.dequeue());       //tirando os 4 primeiros elementos da fila
+        System.out.println("Removendo: " + queue.dequeue());
+        System.out.println("Removendo: " + queue.dequeue());
 
         System.out.println(queue);
-        System.out.println("A Head é: "+queue.head());
+        System.out.println("A Head é: " + queue.head());
         System.out.println("Tamanho da fila: " + queue.size());
 
         queue.enqueue(44);
@@ -54,12 +55,36 @@ public class App{
         queue.enqueue(98);
         System.out.println(queue);
 
+        queue.enqueue(333);
+        queue.enqueue(777);             //colocando no final, antes do head, array circular
+        queue.enqueue(888);
 
-        //queue.enqueue(333);
-       //queue.enqueue(777);             //colocando no final, antes do head, array circular
-       //queue.enqueue(888);             //ARRUMAR
+        System.out.println(queue);
+
+        queue.clear();
 
 
+        queue.enqueue(9);
+        queue.enqueue(3);
+        queue.enqueue(5);
+        queue.enqueue(7);
+
+        System.out.println(queue);
+
+        System.out.println("Removendo: " + queue.dequeue());
+        System.out.println("Removendo: " + queue.dequeue());
+
+        System.out.println(queue);
+
+        queue.enqueue(111);
+        queue.enqueue(222);
+        queue.enqueue(333);
+        queue.enqueue(444);
+        queue.enqueue(555);
+        System.out.println(queue);
+    }
+
+    public void chamarPilha() {
         //PILHA
         ArrayStack stack = new ArrayStack();
         System.out.println("\n--------------------------------------\nCriando uma fila: ");
@@ -70,16 +95,16 @@ public class App{
         System.out.println("Tamanho da fila: " + stack.size());
 
         System.out.println(stack);
-        System.out.println("Top da pilha: "+stack.top());
+        System.out.println("Top da pilha: " + stack.top());
 
-        System.out.println("Tirando da fila: "+ stack.pop());
+        System.out.println("Tirando da fila: " + stack.pop());
         System.out.println(stack);
 
         System.out.println("Limpando a pilha: ");
         stack.clear();
         System.out.println(stack);
 
-        System.out.println("Top da pilha: "+stack.top());
+        System.out.println("Top da pilha: " + stack.top());
         System.out.println("Tamanho da fila: " + stack.size());
 
         stack.push(10);
@@ -93,10 +118,49 @@ public class App{
         stack.push(90);
 
         System.out.println(stack);
-        System.out.println("Top da pilha: "+stack.top());
+        System.out.println("Top da pilha: " + stack.top());
         System.out.println("Tamanho da fila: " + stack.size());
+    }
+
+    public void chamarFilaEncadeada() {
+        LinkedQueue lqueue = new LinkedQueue();
+
+        System.out.println("\n-----------------------\nAdicionando na fila encadeada: ");
+        lqueue.enqueue(9);
+        lqueue.enqueue(3);
+        lqueue.enqueue(5);
+        lqueue.enqueue(7);
+        System.out.println("Head: " + lqueue.head());
+        System.out.println("Tamanho: " + lqueue.size());
+        System.out.println(lqueue);
+
+        System.out.println("Removendo: " + lqueue.dequeue());
+        System.out.println("Removendo: " + lqueue.dequeue());
+        System.out.println(lqueue);
+        System.out.println("Head: " + lqueue.head());
+        System.out.println("Tamanho: " + lqueue.size());
+
+        lqueue.clear();
+        System.out.println(lqueue);
+
+        lqueue.enqueue(111);
+        lqueue.enqueue(222);
+        lqueue.enqueue(333);
+        lqueue.enqueue(444);
+        System.out.println(lqueue);
+        System.out.println("Head: " + lqueue.head());
+        System.out.println("Tamanho: " + lqueue.size());
+
+        System.out.println("Removendo: " + lqueue.dequeue());
+        System.out.println("Removendo: " + lqueue.dequeue());
+        System.out.println(lqueue);
+        System.out.println("Head: " + lqueue.head());
+        System.out.println("Tamanho: " + lqueue.size());
 
 
+    }
+
+    public void chamarPilhaEncadeada() {
         //PILHA ENCADEADA
         LinkedStack lstack = new LinkedStack();
 
