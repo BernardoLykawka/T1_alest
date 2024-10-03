@@ -24,20 +24,80 @@
 
 public class Utils {
 
-
     public QueueTAD reverseQueue(QueueTAD f) {
+        LinkedStack stack = new LinkedStack();
+        LinkedQueue aux = new LinkedQueue();
 
+        for(int i = 0; i < f.size(); i++){
+            int element = f.dequeue();
+            aux.enqueue(element);
+            f.enqueue(element);
+        }
+
+        while (!aux.isEmpty()) {
+            stack.push(aux.dequeue());
+        }
+
+        while (!stack.isEmpty()) {
+            aux.enqueue(stack.pop());
+        }
+
+        return aux;
     }
 
     public StackTAD reverseStack(StackTAD p) {
+        LinkedQueue queue = new LinkedQueue();
+        LinkedStack aux = new LinkedStack();
 
+        for (int i = 0; i < p.size(); i++) {
+            int element = p.pop();
+            queue.enqueue(element);
+            aux.push(element);
+        }
+
+        while (!aux.isEmpty()) {
+            queue.enqueue(aux.pop());
+        }
+
+        while (!queue.isEmpty()) {
+            aux.push(queue.dequeue());
+        }
+
+        return aux;
     }
 
     public StackTAD queueToStack(QueueTAD f){
+        LinkedStack stack = new LinkedStack();
+        LinkedQueue aux = new LinkedQueue();
 
+        for (int i = 0; i < f.size(); i++) {
+            int element = f.dequeue();
+            aux.enqueue(element);
+            f.enqueue(element);
+        }
+
+        while (!aux.isEmpty()) {
+            stack.push(aux.dequeue());
+        }
+
+        return stack;
     }
 
     public QueueTAD stackToQueue(StackTAD p){
+        LinkedQueue queue = new LinkedQueue();
+        LinkedStack aux = new LinkedStack();
 
+        for (int i = 0; i < p.size(); i++) {
+            int element = p.pop();
+            aux.push(element);
+        }
+
+        while (!aux.isEmpty()) {
+            int element = aux.pop();
+            p.push(element);
+            queue.enqueue(element);
+        }
+
+        return queue;
     }
 }

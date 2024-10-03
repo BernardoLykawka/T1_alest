@@ -1,6 +1,8 @@
 
 public class App {
 
+    private Utils u = new Utils();
+
     public void chamarFila() {
         ArrayQueue queue = new ArrayQueue();
 
@@ -158,6 +160,12 @@ public class App {
         System.out.println("Tamanho: " + lqueue.size());
 
 
+
+        System.out.println(u.reverseQueue(lqueue));
+        System.out.println(u.queueToStack(lqueue));
+
+
+
     }
 
     public void chamarPilhaEncadeada() {
@@ -191,5 +199,9 @@ public class App {
         lstack.push(5);
         System.out.println("Top da pilha encadeada: " + lstack.top());
         System.out.println(lstack);
+
+        System.out.println(u.reverseStack(lstack));
+        System.out.println(u.stackToQueue(lstack));
+
     }
 }

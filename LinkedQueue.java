@@ -1,3 +1,4 @@
+import java.util.NoSuchElementException;
 
 /**
  * (2 Pontos) Uma classe LinkedQueue, contendo uma implementação completa de uma
@@ -46,9 +47,19 @@ public class LinkedQueue implements QueueTAD {
 
     @Override
     public int dequeue() {
+
+        if(isEmpty()){
+            throw new NoSuchElementException();
+        }
+
         int anterior = head.element;
-        if (head.next == null) {
+
+        if (head == tail) {
             head = null;
+            tail = null;
+
+            count--;
+            return anterior;
         }
 
         head = head.next;
