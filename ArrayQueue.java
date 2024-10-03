@@ -31,7 +31,7 @@ public class ArrayQueue implements QueueTAD{
 
     @Override
     public void enqueue(int element) {
-        if(count == tam){       //muda a capacidade
+        if(count == tam){
             setCapacity(tam * 2);
         }
 

@@ -161,8 +161,9 @@ public class App {
 
 
 
-        System.out.println(u.reverseQueue(lqueue));
-        System.out.println(u.queueToStack(lqueue));
+        System.out.println("Fila revertida: " + u.reverseQueue(lqueue));
+        System.out.println("Fila normal: " + lqueue);
+        System.out.println("Fila para Pilha: " + u.queueToStack(lqueue));
 
 
 
@@ -200,8 +201,9 @@ public class App {
         System.out.println("Top da pilha encadeada: " + lstack.top());
         System.out.println(lstack);
 
-        System.out.println(u.reverseStack(lstack));
-        System.out.println(u.stackToQueue(lstack));
+        System.out.println("Pilha revertida: "+ u.reverseStack(lstack));
+        System.out.println("Pilha normal: "+ lstack);
+        System.out.println("Pilha para fila: " + u.stackToQueue(lstack));
 
     }
 }

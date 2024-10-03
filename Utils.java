@@ -49,35 +49,41 @@ public class Utils {
         LinkedQueue queue = new LinkedQueue();
         LinkedStack aux = new LinkedStack();
 
-        for (int i = 0; i < p.size(); i++) {
+        int size = p.size();
+
+        for (int i = 0; i < size; i++) {
             int element = p.pop();
             queue.enqueue(element);
             aux.push(element);
         }
 
         while (!aux.isEmpty()) {
-            queue.enqueue(aux.pop());
+            p.push(aux.pop());
         }
+
+        LinkedStack reversed = new LinkedStack();
 
         while (!queue.isEmpty()) {
-            aux.push(queue.dequeue());
+            reversed.push(queue.dequeue());
         }
 
-        return aux;
+        return reversed;
     }
 
     public StackTAD queueToStack(QueueTAD f){
         LinkedStack stack = new LinkedStack();
-        LinkedQueue aux = new LinkedQueue();
+        LinkedStack aux = new LinkedStack();
 
-        for (int i = 0; i < f.size(); i++) {
+        int size = f.size();
+
+        for (int i = 0; i < size; i++) {
             int element = f.dequeue();
-            aux.enqueue(element);
+            aux.push(element);
             f.enqueue(element);
         }
 
         while (!aux.isEmpty()) {
-            stack.push(aux.dequeue());
+            stack.push(aux.pop());
         }
 
         return stack;
@@ -87,15 +93,16 @@ public class Utils {
         LinkedQueue queue = new LinkedQueue();
         LinkedStack aux = new LinkedStack();
 
-        for (int i = 0; i < p.size(); i++) {
+        int size = p.size();
+
+        for (int i = 0; i < size; i++) {
             int element = p.pop();
             aux.push(element);
+            queue.enqueue(element);
         }
 
         while (!aux.isEmpty()) {
-            int element = aux.pop();
-            p.push(element);
-            queue.enqueue(element);
+            p.push(aux.pop());
         }
 
         return queue;
