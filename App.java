@@ -89,17 +89,17 @@ public class App {
     public void chamarPilha() {
         //PILHA
         ArrayStack stack = new ArrayStack();
-        System.out.println("\n--------------------------------------\nCriando uma fila: ");
+        System.out.println("\n--------------------------------------\nCriando uma pilha: ");
 
         stack.push(9);
         stack.push(3);
         stack.push(5);
-        System.out.println("Tamanho da fila: " + stack.size());
+        System.out.println("Tamanho da pilha: " + stack.size());
 
         System.out.println(stack);
         System.out.println("Top da pilha: " + stack.top());
 
-        System.out.println("Tirando da fila: " + stack.pop());
+        System.out.println("Tirando da pilha: " + stack.pop());
         System.out.println(stack);
 
         System.out.println("Limpando a pilha: ");
@@ -107,7 +107,7 @@ public class App {
         System.out.println(stack);
 
         System.out.println("Top da pilha: " + stack.top());
-        System.out.println("Tamanho da fila: " + stack.size());
+        System.out.println("Tamanho da pilha: " + stack.size());
 
         stack.push(10);
         stack.push(20);
